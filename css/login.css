@@ -1,0 +1,121 @@
+#welcome-message {
+    background-color: #007bff; 
+    color: white; 
+    padding: 30px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilo del mensaje de bienvenida */
+.welcome-message h2 {
+    font-size: 2.5rem; /* Tamaño de la fuente */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* Justificar el texto del mensaje */
+.welcome-message p {
+    text-align: justify;
+    font-size: 1.1rem; /* Tamaño de la fuente del párrafo */
+}
+
+/* Estilo del formulario de inicio de sesión */
+form {
+    background-color: white; /* Fondo blanco */
+    padding: 30px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra del formulario */
+}
+
+/* Estilo de las etiquetas del formulario */
+.form-group label {
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo del botón de inicio de sesión */
+.btn-primary {
+    background-color: #28a745; /* Color verde */
+    border-color: #28a745; /* Color del borde */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.btn-primary:hover {
+    background-color: #218838; /* Color más oscuro al pasar el mouse */
+}
+
+/* Estilo de los enlaces */
+a {
+    color: #007bff; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayar al pasar el mouse */
+}
+
+/* Espaciado entre botones */
+.btn-success {
+    margin-left: 10px; /* Margen izquierdo */
+}
+
+/* Estilos para el modal */
+.modal-content {
+    border-radius: 12px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+    overflow: hidden; /* Para evitar que el contenido sobresalga */
+}
+
+.modal-header {
+    background-color: #08fd00; /* Fondo azul */
+    color: white; /* Texto blanco */
+    font-weight: bold; /* Texto en negrita */
+    padding: 20px; /* Espaciado */
+    border-bottom: 2px solid #000000; /* Línea de separación */
+}
+
+.modal-body {
+    background-color: #f9f9f9; /* Fondo gris claro */
+    padding: 30px; /* Espaciado */
+    font-size: 1.1em; /* Tamaño de fuente más grande */
+}
+
+.modal-footer {
+    background-color: #f1f1f1; /* Fondo claro para el pie */
+    border-top: none; /* Sin borde superior */
+    padding: 15px; /* Espaciado */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Azul */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+}
+
+.btn-secondary {
+    background-color: #6c757d; /* Gris */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Gris más oscuro */
+}
+
+/* Añadir un efecto de animación al modal */
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Transiciones suaves */
+}
+
+.modal.show .modal-dialog {
+    transform: translate(0, 0); /* Colocación original */
+}
+
+
+

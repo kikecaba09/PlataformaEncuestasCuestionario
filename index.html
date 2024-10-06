@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css"> <!-- Link to your CSS file -->
+    <title>Plataforma de Encuestas</title>
+</head>
+<body>
+    <!-- header.html -->
+<header class="bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center py-3">
+            <div class="col-md-2">
+                <img src="img/logo.png" alt="Logo" class="img-fluid" style="max-height: 80px; max-width: 120px;">
+            </div>
+            <div class="col-md-8 text-center">
+                <h1 class="header-title">Plataforma de Encuestas</h1>
+            </div>
+            <div class="col-md-2 text-right">
+                <a href="html/login.html" class="btn btn-danger">Iniciar Sesión</a>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Características</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Preguntas Frecuentes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reseñas</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+    <!-- Descripción -->
+    <section class="container my-5">
+        <h2 class="text-info text-center mb-4">Descripción</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="text-justify">Nuestra plataforma de encuestas y cuestionarios te permite crear, responder y analizar encuestas de manera fácil y rápida. Con una interfaz intuitiva, podrás personalizar tus encuestas, elegir entre múltiples formatos de preguntas y acceder a análisis detallados que te ayudarán a tomar decisiones informadas. Ideal para empresas, educadores y cualquier persona que necesite recopilar información valiosa.</p>
+                <a href="#" class="btn btn-primary mt-3">Crear una encuesta</a>
+            </div>
+            <div class="col-md-6">
+                <img src="img/encuesta.png" class="img-fluid rounded" alt="Descripción de la Plataforma" style="max-height: 300px; max-width: 100%; margin-top: 20px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Características -->
+    <section class="container my-5">
+        <h2 class="text-center mb-4 text-success">Características</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card border-success">
+                    <img src="img/facil.png" class="card-img-top" alt="Fácil de usar">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary"><i class="fas fa-user-edit"></i> Fácil de usar</h5>
+                        <p class="card-text">Interfaz intuitiva que permite crear encuestas en minutos.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-success">
+                    <img src="img/resultadosTiempoReal.png" class="card-img-top" alt="Resultados en Tiempo Real">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary"><i class="fas fa-chart-line"></i> Resultados en Tiempo Real</h5>
+                        <p class="card-text">Obtén resultados al instante y analiza datos en tiempo real.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card border-success">
+                    <img src="img/visualizacion.png" class="card-img-top" alt="Visualización de Datos">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary"><i class="fas fa-chart-pie"></i> Visualización de Datos</h5>
+                        <p class="card-text">Gráficos claros y comprensibles para una mejor interpretación de datos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Sección de Preguntas Frecuentes -->
+<section class="container my-5">
+    <h2 class="text-center mb-4 text-warning">Preguntas Frecuentes</h2>
+    <div class="accordion" id="faqAccordion">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        ¿Es fácil crear una encuesta?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                <div class="card-body text-justify">
+                    Sí, nuestra plataforma está diseñada para ser intuitiva y fácil de usar. Puedes 
+                    crear una encuesta en pocos minutos, incluso si no tienes experiencia previa. 
+                    Simplemente selecciona el tipo de preguntas que deseas incluir, añade las opciones y
+                    personaliza el diseño según tus preferencias. Además, contamos con tutoriales y guías para
+                    asistirte en el proceso.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        ¿Puedo personalizar mis encuestas?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                <div class="card-body text-justify">
+                    Sí, puedes personalizar el diseño de tus encuestas de múltiples maneras. Tienes la opción 
+                    de elegir entre diferentes plantillas, colores, y tipos de letra. También puedes añadir tu 
+                    propio logo e imágenes, así como modificar el texto de bienvenida y de cierre para 
+                    adaptarlo a tu marca o estilo. Esto te permitirá crear encuestas que se alineen 
+                    perfectamente con la imagen de tu empresa.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        ¿Cómo se protegen mis datos?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                <div class="card-body text-justify">
+                    Nuestra plataforma sigue estrictos estándares de seguridad para proteger tus datos y la privacidad de tus encuestados. Utilizamos encriptación de datos durante la transmisión, almacenamiento seguro en servidores confiables y acceso restringido a información sensible. Además, cumplimos con las regulaciones de protección de datos aplicables para asegurar que tu información esté protegida en todo momento.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        ¿Qué tipos de preguntas puedo hacer en mis encuestas?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                <div class="card-body text-justify">
+                    Puedes incluir una variedad de tipos de preguntas en tus encuestas. Esto incluye preguntas de opción múltiple, casillas de verificación, preguntas de escala (como Likert), preguntas abiertas y más. Además, puedes agregar imágenes y videos a las preguntas para hacerlas más interactivas. Esto te permite recopilar información de manera efectiva y obtener una comprensión más profunda de las opiniones y necesidades de tus encuestados.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFive">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        ¿Qué pasa si tengo problemas técnicos?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+                <div class="card-body text-justify">
+                    Contamos con un equipo de soporte técnico disponible para ayudarte en caso de que enfrentes problemas. Puedes contactarnos a través de nuestro chat en vivo, correo electrónico o línea telefónica. Nuestro objetivo es resolver cualquier inconveniente lo más rápido posible para que puedas continuar usando la plataforma sin problemas. Además, ofrecemos una sección de preguntas frecuentes y tutoriales en línea para ayudarte a solucionar problemas comunes.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingSix">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        ¿Ofrecen análisis de datos?
+                    </button>
+                </h5>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqAccordion">
+                <div class="card-body text-justify">
+                    Sí, nuestra plataforma ofrece herramientas de análisis de datos que te permiten ver y entender los resultados de tus encuestas de manera sencilla. Puedes visualizar los datos a través de gráficos y tablas, y realizar comparaciones entre diferentes encuestas. También tienes la opción de exportar los datos en varios formatos (como CSV y Excel) para un análisis más detallado. Esto te ayuda a tomar decisiones basadas en datos concretos y a mejorar tus futuras encuestas.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de Reseñas -->
+<section class="container my-5">
+    <h2 class="text-center mb-4 text-danger">Reseñas</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-justify">
+                    <p class="card-text">"La plataforma de encuestas me ha permitido recopilar información valiosa de mis clientes de una manera rápida y eficiente. Su interfaz es muy intuitiva, lo que me facilitó la creación de encuestas personalizadas sin complicaciones. La variedad de tipos de preguntas que puedo incluir me permite obtener insights más profundos. Definitivamente la recomendaría a otros."</p>
+                    <h5 class="card-title">- Juan Pérez</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-justify">
+                    <p class="card-text">"Estoy muy satisfecho con mi experiencia en la plataforma. La capacidad de personalizar las encuestas ha sido un gran plus para mi negocio. Además, la opción de analizar los resultados en tiempo real me ha ayudado a ajustar mis estrategias sobre la marcha. He visto un aumento en la participación de mis clientes gracias a las encuestas atractivas que he creado."</p>
+                    <h5 class="card-title">- María López</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body text-justify">
+                    <p class="card-text">"Los resultados en tiempo real son impresionantes. La plataforma no solo es fácil de usar, sino que también proporciona herramientas de análisis que hacen que la interpretación de los datos sea muy clara. He probado varias plataformas de encuestas, pero esta es, sin duda, la mejor. Estoy muy agradecido por el soporte técnico, que ha sido muy útil cada vez que he tenido preguntas."</p>
+                    <h5 class="card-title">- Luis Martínez</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- footer.html -->
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h5>Ubicación</h5>
+                <p>Av. 9 de octubre y Cajamarca 196, Chiclayo</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Contacto</h5>
+                <p>Email: kikecabanillas0003@gmail.com</p>
+                <p>Teléfono: 968 099 508</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Redes Sociales</h5>
+                <div>
+                    <a href="#" class="btn text-white me-2" style="background-color: #3b5998; width: 40px; height: 40px; border-radius: 50%;">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="btn text-white me-2" style="background-color: #1da1f2; width: 40px; height: 40px; border-radius: 50%;">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="btn text-white me-2" style="background-color: #e1306c; width: 40px; height: 40px; border-radius: 50%;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="btn text-white me-2" style="background-color: #0077b5; width: 40px; height: 40px; border-radius: 50%;">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <p class="mt-3 text-center">© 2024 Plataforma de Encuestas. Todos los derechos reservados.</p>
+    </div>
+</footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

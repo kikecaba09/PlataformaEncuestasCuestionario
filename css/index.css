@@ -1,0 +1,33 @@
+.navbar-nav .nav-link {
+    color: #fff !important;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.header-title {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.card-img-top {
+    width: 100%; /* Asegura que las imágenes ocupen el ancho completo del contenedor */
+    height: 200px; /* Ajusta la altura según tus necesidades */
+    object-fit: cover; /* Asegura que la imagen cubra el área especificada sin distorsionarse */
+}

@@ -1,0 +1,52 @@
+<?php
+require_once '../conexion.php'; 
+
+// Verificar si se envió el formulario
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validación del lado del servidor
+    $nombreUsuario = trim($_POST['nombreUsuario']);
+    $contrasena = trim($_POST['contrasena']);
+    $email = trim($_POST['email']);
+
+    if (empty($nombreUsuario) || empty($contrasena) || empty($email)) {
+        echo "Por favor, completa todos los campos.";
+        exit();
+    }
+
+    // Validar formato del correo electrónico
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Correo electrónico no válido.";
+        exit();
+    }
+
+    // Escapar caracteres especiales
+    $nombreUsuario = $conexion->real_escape_string($nombreUsuario);
+    $email = $conexion->real_escape_string($email);
+
+    // Verificar si el nombre de usuario o el email ya existen
+    $stmt = $conexion->prepare("SELECT * FROM Usuario WHERE nombreUsuario = ? OR email = ?");
+    $stmt->bind_param("ss", $nombreUsuario, $email);
+    $stmt->execute();
+    $resultadoVerificacion = $stmt->get_result();
+
+    if ($resultadoVerificacion->num_rows > 0) {
+        echo "El nombre de usuario o correo ya están registrados.";
+    } else {
+        // Encriptar la contraseña
+        $hashedPassword = password_hash($contrasena, PASSWORD_DEFAULT);
+
+        // Insertar el nuevo usuario en la base de datos
+        $stmt = $conexion->prepare("INSERT INTO Usuario (nombreUsuario, contrasena, email) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $nombreUsuario, $hashedPassword, $email);
+        if ($stmt->execute()) {
+            // Redirigir al login tras el registro exitoso
+            header("Location: ../../html/login.html"); 
+            exit();
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+    }
+
+    $stmt->close();
+}
+?>
