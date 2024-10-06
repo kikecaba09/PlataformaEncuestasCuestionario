@@ -1,0 +1,65 @@
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS PlataformaEncuestas;
+
+-- Usar la base de datos
+USE PlataformaEncuestas;
+
+-- Crear tabla Usuario
+CREATE TABLE IF NOT EXISTS Usuario (
+    usuario_id INT AUTO_INCREMENT PRIMARY KEY,
+    nombreUsuario VARCHAR(255) NOT NULL UNIQUE,
+    contrasena VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    fechaCreacion DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Crear tabla Encuesta
+CREATE TABLE IF NOT EXISTS Encuesta (
+    encuesta_id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    descripcion TEXT,
+    link_unico VARCHAR(255) NOT NULL UNIQUE,
+    usuario_id INT,
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    activa BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (usuario_id) REFERENCES Usuario(usuario_id) ON DELETE SET NULL
+);
+
+-- Crear tabla Pregunta
+CREATE TABLE IF NOT EXISTS Pregunta (
+    pregunta_id INT AUTO_INCREMENT PRIMARY KEY,
+    encuesta_id INT,
+    texto_pregunta TEXT NOT NULL,
+    tipo_pregunta ENUM('texto', 'opcion_unica', 'opcion_multiple') NOT NULL,
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (encuesta_id) REFERENCES Encuesta(encuesta_id) ON DELETE CASCADE
+);
+
+-- Crear tabla Opcion
+CREATE TABLE IF NOT EXISTS Opcion (
+    opcion_id INT AUTO_INCREMENT PRIMARY KEY,
+    pregunta_id INT,
+    texto_opcion VARCHAR(255) NOT NULL,
+    FOREIGN KEY (pregunta_id) REFERENCES Pregunta(pregunta_id) ON DELETE CASCADE
+);
+
+-- Crear tabla Respuesta
+CREATE TABLE IF NOT EXISTS Respuesta (
+    respuesta_id INT AUTO_INCREMENT PRIMARY KEY,
+    pregunta_id INT,
+    usuario_id INT DEFAULT NULL,
+    texto_respuesta TEXT,
+    opciones_seleccionadas VARCHAR(255),
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (pregunta_id) REFERENCES Pregunta(pregunta_id) ON DELETE CASCADE,
+    FOREIGN KEY (usuario_id) REFERENCES Usuario(usuario_id) ON DELETE SET NULL
+);
+
+-- Crear tabla Analisis
+CREATE TABLE IF NOT EXISTS Analisis (
+    analisis_id INT AUTO_INCREMENT PRIMARY KEY,
+    encuesta_id INT,
+    resultado TEXT,
+    fecha_analisis DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (encuesta_id) REFERENCES Encuesta(encuesta_id) ON DELETE CASCADE
+);
