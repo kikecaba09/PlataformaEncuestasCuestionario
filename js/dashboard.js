@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    // Mostrar spinner mientras se cargan los datos
     $('#encuestasRecientes').html('<div class="text-center"><i class="fas fa-spinner fa-spin"></i> Cargando encuestas...</div>');
 
     // Cargar nombre del usuario
