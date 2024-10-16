@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS Respuesta (
     FOREIGN KEY (usuario_id) REFERENCES Usuario(usuario_id) ON DELETE SET NULL
 );
 
--- Crear tabla Analisis
+    -- Crear tabla Analisis
 CREATE TABLE IF NOT EXISTS Analisis (
     analisis_id INT AUTO_INCREMENT PRIMARY KEY,
     encuesta_id INT,
