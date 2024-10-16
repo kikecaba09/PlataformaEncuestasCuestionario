@@ -1,0 +1,110 @@
+use plataformaencuestas;
+
+INSERT INTO Usuario (nombreUsuario, contrasena, email) VALUES
+('Victor', 'victor123', 'kikecabanillas0003@gmail.com'),
+('Lucia Fernandez', 'luf3rnandez', 'lucia@yahoo.com'),
+('Fernando Gomez', 'fer123456', 'fgomez@hotmail.com'),
+('Ana Torres', 'anita456', 'ana.torres@gmail.com'),
+('Javier Ramos', 'javi987654', 'javi.ramos@yahoo.com');
+
+INSERT INTO Encuesta (titulo, descripcion, link_unico, usuario_id, fecha_creacion, activa) VALUES
+-- Encuestas para Carlos Martinez (usuario_id 1)
+('Encuesta de Satisfacción del Cliente', 'Queremos conocer tu experiencia con nuestros servicios.', 'encuesta_satisfaccion_cliente', 1, '2024-10-01 10:00:00', TRUE),
+('Encuesta de Productos Nuevos', 'Opiniones sobre los nuevos productos.', 'encuesta_productos_nuevos', 1, '2024-10-05 12:30:00', TRUE),
+('Encuesta de Calidad del Servicio', 'Ayúdanos a mejorar nuestro servicio.', 'encuesta_calidad_servicio', 1, '2024-10-10 09:00:00', TRUE),
+('Encuesta de Preferencias de Compra', 'Queremos conocer tus hábitos de compra.', 'encuesta_preferencias_compra', 1, '2024-10-12 15:00:00', TRUE),
+('Encuesta de Feedback General', 'Tu opinión es muy importante para nosotros.', 'encuesta_feedback_general', 1, '2024-10-15 14:00:00', TRUE),
+
+-- Encuestas para Lucia Fernandez (usuario_id 2)
+('Encuesta sobre Usabilidad del Sitio', '¿Qué te parece la usabilidad de nuestro sitio web?', 'encuesta_usabilidad', 2, '2024-10-01 11:00:00', TRUE),
+('Encuesta de Satisfacción General', 'Cuéntanos sobre tu satisfacción con nuestros productos.', 'encuesta_satisfaccion_general', 2, '2024-10-03 12:00:00', TRUE),
+('Encuesta de Servicio al Cliente', 'Evalúa nuestro servicio al cliente.', 'encuesta_servicio_cliente', 2, '2024-10-07 10:30:00', TRUE),
+('Encuesta de Preferencias de Productos', '¿Cuáles son tus productos favoritos?', 'encuesta_preferencias_productos', 2, '2024-10-09 11:15:00', TRUE),
+('Encuesta de Calidad de Productos', '¿Qué opinas sobre la calidad de nuestros productos?', 'encuesta_calidad_productos', 2, '2024-10-11 16:45:00', TRUE),
+
+-- Encuestas para Fernando Gomez (usuario_id 3)
+('Encuesta sobre Nuevas Funciones', '¿Qué nuevas funciones te gustaría ver?', 'encuesta_nuevas_funciones', 3, '2024-10-02 10:00:00', TRUE),
+('Encuesta de Satisfacción de Compras', 'Cuéntanos sobre tu experiencia de compra.', 'encuesta_satisfaccion_compras', 3, '2024-10-04 12:30:00', TRUE),
+('Encuesta de Recomendaciones', '¿Nos recomendarías a tus amigos?', 'encuesta_recomendaciones', 3, '2024-10-06 14:00:00', TRUE),
+('Encuesta de Preferencias de Estilo', '¿Cuál es tu estilo preferido de nuestros productos?', 'encuesta_preferencias_estilo', 3, '2024-10-08 11:00:00', TRUE),
+('Encuesta sobre la Marca', '¿Qué piensas sobre nuestra marca?', 'encuesta_opinion_marca', 3, '2024-10-10 15:30:00', TRUE),
+
+-- Encuestas para Ana Torres (usuario_id 4)
+('Encuesta de Evaluación de Talleres', '¿Te gustaría participar en talleres de formación?', 'encuesta_talleres', 4, '2024-10-01 09:00:00', TRUE),
+('Encuesta sobre Eventos', '¿Te gustaría asistir a eventos especiales?', 'encuesta_eventos', 4, '2024-10-03 10:00:00', TRUE),
+('Encuesta de Información del Producto', '¿Te gustaría recibir más información sobre nuestros productos?', 'encuesta_info_producto', 4, '2024-10-05 14:30:00', TRUE),
+('Encuesta de Descuentos', '¿Qué tipo de descuentos prefieres recibir?', 'encuesta_descuentos', 4, '2024-10-07 11:15:00', TRUE),
+('Encuesta sobre la Competencia', '¿Qué opinas de nuestros competidores?', 'encuesta_opinion_competencia', 4, '2024-10-09 15:00:00', TRUE),
+
+-- Encuestas para Javier Ramos (usuario_id 5)
+('Encuesta sobre el Programa de Lealtad', '¿Te gustaría participar en un programa de lealtad?', 'encuesta_programa_lealtad', 5, '2024-10-01 13:00:00', TRUE),
+('Encuesta de Opinión de Servicio', 'Cuéntanos tu experiencia con nuestro servicio.', 'encuesta_opinion_servicio', 5, '2024-10-03 16:00:00', TRUE),
+('Encuesta sobre Promociones', '¿Qué promociones te gustaría ver?', 'encuesta_promociones', 5, '2024-10-05 10:30:00', TRUE),
+('Encuesta de Participación en Encuestas', '¿Participarías en más encuestas en el futuro?', 'encuesta_participacion', 5, '2024-10-07 09:45:00', TRUE),
+('Encuesta de Mejoras en el Producto', '¿Qué mejoras te gustaría que implementemos?', 'encuesta_mejoras_producto', 5, '2024-10-09 14:15:00', TRUE);
+
+INSERT INTO Pregunta (encuesta_id, texto_pregunta, tipo_pregunta) VALUES
+-- Preguntas para Encuesta de Satisfacción del Cliente (encuesta_id 1)
+(1, '¿Qué tan satisfecho estás con nuestro servicio?', 'opcion_unica'),
+(1, '¿Recomendarías nuestros servicios?', 'opcion_unica'),
+(1, '¿Qué mejorarías en nuestros servicios?', 'texto'),
+(1, '¿Cómo calificarías la atención al cliente?', 'opcion_unica'),
+(1, '¿Qué productos has utilizado?', 'opcion_multiple'),
+
+-- Preguntas para Encuesta de Productos Nuevos (encuesta_id 2)
+(2, '¿Te gustan nuestros nuevos productos?', 'opcion_unica'),
+(2, '¿Cuál es tu favorito de nuestros nuevos productos?', 'texto'),
+(2, '¿Qué características te gustaría en futuros productos?', 'texto'),
+(2, '¿Cuál es el producto que menos te ha gustado?', 'texto'),
+(2, '¿Comprarías alguno de nuestros nuevos productos?', 'opcion_unica'),
+
+-- Preguntas para Encuesta de Calidad del Servicio (encuesta_id 3)
+(3, '¿Cómo calificarías la calidad de nuestro servicio?', 'opcion_unica'),
+(3, '¿Qué aspectos del servicio mejorarías?', 'texto'),
+(3, '¿Qué tan rápido recibiste atención?', 'opcion_unica'),
+(3, '¿Volverías a usar nuestro servicio?', 'opcion_unica'),
+(3, 'Comentarios adicionales sobre el servicio.', 'texto'),
+
+-- Preguntas para Encuesta de Preferencias de Compra (encuesta_id 4)
+(4, '¿Con qué frecuencia compras nuestros productos?', 'opcion_unica'),
+(4, '¿Qué tipo de productos compras más?', 'opcion_multiple'),
+(4, '¿Prefieres comprar en línea o en tienda física?', 'opcion_unica'),
+(4, '¿Qué tan importante es el precio para ti?', 'opcion_unica'),
+(4, '¿Qué promociones te motivan a comprar?', 'texto'),
+
+-- Preguntas para Encuesta de Feedback General (encuesta_id 5)
+(5, '¿Cómo calificarías tu experiencia general con nosotros?', 'opcion_unica'),
+(5, '¿Qué sugerencias tienes para mejorar?', 'texto'),
+(5, '¿Qué aspectos valoras más de nuestra empresa?', 'texto'),
+(5, '¿Cómo te enteraste de nosotros?', 'opcion_unica'),
+(5, '¿Hay algo más que te gustaría comentar?', 'texto'),
+
+-- Continuamos con preguntas para Lucia Fernandez
+-- Preguntas para Encuesta sobre Usabilidad del Sitio (encuesta_id 6)
+(6, '¿Es fácil navegar en nuestro sitio web?', 'opcion_unica'),
+(6, '¿Qué mejorarías de la navegación?', 'texto'),
+(6, '¿Con qué frecuencia visitas nuestro sitio?', 'opcion_unica'),
+(6, '¿Qué tan rápido carga el sitio?', 'opcion_unica'),
+(6, '¿Te gustaría ver más contenido en el sitio?', 'opcion_unica'),
+
+-- Preguntas para Encuesta de Satisfacción General (encuesta_id 7)
+(7, '¿Qué tan satisfecho estás con nuestros productos en general?', 'opcion_unica'),
+(7, '¿Cómo compararías nuestra calidad con la de la competencia?', 'opcion_unica'),
+(7, '¿Qué productos te gustaría que ofrezcamos?', 'texto'),
+(7, '¿Qué es lo que más te gusta de nuestros productos?', 'texto'),
+(7, '¿Tienes algún comentario adicional?', 'texto');
+
+INSERT INTO Opcion (pregunta_id, texto_opcion) VALUES
+-- Opciones para Pregunta 1 de Encuesta 1
+(1, 'Muy satisfecho'),
+(1, 'Satisfecho'),
+(1, 'Neutral'),
+(1, 'Insatisfecho'),
+(1, 'Muy insatisfecho'),
+
+-- Opciones para Pregunta 1 de Encuesta 2
+(6, 'Sí'),
+(6, 'No'),
+(6, 'Tal vez'),
+(6, 'No estoy seguro'),
+(6, 'Prefiero no responder');
