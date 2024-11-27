@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Encuesta - Plataforma Premium</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #4CAF50;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+        .card {
+            border-radius: 12px;
+        }
+        .btn-primary, .btn-success, .btn-danger {
+            border-radius: 20px;
+        }
+        .btn-outline-success {
+            border-radius: 12px;
+        }
+        .question {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            margin-top: 30px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Plataforma Encuestas</a>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white text-center">
+                <h2>Crear Nueva Encuesta</h2>
+                <p class="mb-0">Diseña tus encuestas con facilidad y profesionalismo</p>
+            </div>
+            <div class="card-body">
+                <form id="surveyForm">
+                    <!-- Título -->
+                    <div class="mb-3">
+                        <label for="surveyTitle" class="form-label">Título de la Encuesta</label>
+                        <input type="text" class="form-control" id="surveyTitle" name="surveyTitle" placeholder="Ejemplo: Encuesta de satisfacción" required>
+                    </div>
+
+                    <!-- Descripción -->
+                    <div class="mb-3">
+                        <label for="surveyDescription" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="surveyDescription" name="surveyDescription" rows="3" placeholder="Breve descripción sobre el propósito de la encuesta"></textarea>
+                    </div>
+
+                    <!-- Preguntas -->
+                    <div id="questionsContainer"></div>
+
+                    <!-- Botones -->
+                    <div class="text-center mt-4">
+                        <button type="button" class="btn btn-success mb-3" onclick="addQuestion()">Agregar Pregunta</button>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Crear Encuesta</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            &copy; 2024 Plataforma Encuestas. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let questionCounter = 0;
+
+        function addQuestion() {
+            questionCounter++;
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('question');
+            questionDiv.setAttribute('data-question-id', questionCounter);
+
+            questionDiv.innerHTML = `
+                <div class="mb-3">
+                    <h5>Pregunta ${questionCounter}</h5>
+                    <label for="questionText_${questionCounter}" class="form-label">Texto de la Pregunta</label>
+                    <input type="text" class="form-control" id="questionText_${questionCounter}" name="questionText_${questionCounter}" placeholder="Escribe tu pregunta aquí" required>
+                </div>
+                <div class="mb-3">
+                    <label for="questionType_${questionCounter}" class="form-label">Tipo de Pregunta</label>
+                    <select class="form-select" id="questionType_${questionCounter}" name="questionType_${questionCounter}" onchange="toggleOptions(this, ${questionCounter})" required>
+                        <option value="texto">Respuesta Abierta</option>
+                        <option value="opcion_unica">Selección Única</option>
+                        <option value="opcion_multiple">Selección Múltiple</option>
+                    </select>
+                </div>
+                <div id="optionsContainer_${questionCounter}" class="mb-3" style="display: none;">
+                    <label class="form-label">Opciones</label>
+                    <div class="options-list"></div>
+                    <button type="button" class="btn btn-outline-success btn-sm mt-2" onclick="addOption(${questionCounter})">Agregar Opción</button>
+                </div>
+                <button type="button" class="btn btn-danger btn-sm" onclick="removeQuestion(${questionCounter})">Eliminar Pregunta</button>
+            `;
+
+            document.getElementById('questionsContainer').appendChild(questionDiv);
+        }
+
+        function toggleOptions(selectElement, questionId) {
+            const optionsContainer = document.getElementById(`optionsContainer_${questionId}`);
+            if (selectElement.value === 'opcion_unica' || selectElement.value === 'opcion_multiple') {
+                optionsContainer.style.display = 'block';
+            } else {
+                optionsContainer.style.display = 'none';
+                optionsContainer.querySelector('.options-list').innerHTML = '';
+            }
+        }
+
+        function addOption(questionId) {
+            const optionsList = document.querySelector(`#optionsContainer_${questionId} .options-list`);
+            const questionType = document.getElementById(`questionType_${questionId}`).value;
+            const optionType = questionType === 'opcion_unica' ? 'radio' : 'checkbox';
+            const optionDiv = document.createElement('div');
+            optionDiv.classList.add('form-check');
+            optionDiv.innerHTML = `
+                <input class="form-check-input" type="${optionType}" disabled>
+                <input type="text" class="form-control d-inline-block w-75" name="option_${questionId}[]" placeholder="Texto de la opción" required>
+                <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeOption(this)">Eliminar</button>
+            `;
+            optionsList.appendChild(optionDiv);
+        }
+
+        function removeOption(button) {
+            button.closest('.form-check').remove();
+        }
+
+        function removeQuestion(questionId) {
+            const questionElement = document.querySelector(`[data-question-id="${questionId}"]`);
+            questionElement.remove();
+        }
+
+        document.getElementById('surveyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const surveyData = Object.fromEntries(formData.entries());
+            console.log('Encuesta creada:', surveyData);
+            alert('¡Encuesta creada con éxito!');
+            event.target.reset();
+            document.getElementById('questionsContainer').innerHTML = '';
+        });
+    </script>
+</body>
+</html>
