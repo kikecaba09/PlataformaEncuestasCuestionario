@@ -1,6 +1,6 @@
 <?php
 // Incluir la conexión a la base de datos
-include 'conexionBD.php'; // Incluye el archivo donde está la conexión a la base de datos
+include '../conexion.php'; // Incluye el archivo donde está la conexión a la base de datos
 
 // Iniciar la sesión para acceder a las variables de sesión
 session_start(); 

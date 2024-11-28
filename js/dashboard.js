@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     encuestasRecientes.innerHTML = '<div class="text-center"><i class="fas fa-spinner fa-spin"></i> Cargando encuestas...</div>';
 
     // Cargar nombre del usuario
-    fetch('../php/login/login.php')
+    fetch('../php/login/usuario.php')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al obtener el usuario');
@@ -35,12 +35,13 @@ document.addEventListener("DOMContentLoaded", function() {
             if (encuestas.error) {
                 encuestasRecientes.innerHTML = '<div class="text-center">No hay encuestas disponibles</div>';
             } else {
+                let encuestasHTML = '';
                 encuestas.forEach(encuesta => {
                     const estado = encuesta.activa ? 'Activa' : 'Cerrada';
                     const badgeClass = encuesta.activa ? 'badge-primary' : 'badge-secondary';
-                    const li = `<li class="list-group-item">${encuesta.titulo} <span class="badge ${badgeClass}">${estado}</span></li>`;
-                    encuestasRecientes.innerHTML += li;
+                    encuestasHTML += `<li class="list-group-item">${encuesta.titulo} <span class="badge ${badgeClass}">${estado}</span></li>`;
                 });
+                encuestasRecientes.innerHTML = encuestasHTML;  // Asignamos todo el HTML de una vez
             }
         })
         .catch(error => {
