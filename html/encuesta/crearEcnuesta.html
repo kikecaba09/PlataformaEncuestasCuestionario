@@ -61,7 +61,7 @@
                 <p class="mb-0">Diseña tus encuestas con facilidad y profesionalismo</p>
             </div>
             <div class="card-body">
-                <form id="surveyForm">
+                <form id="surveyForm" method="POST" action="crear_encuesta.php">
                     <!-- Título -->
                     <div class="mb-3">
                         <label for="surveyTitle" class="form-label">Título de la Encuesta</label>
@@ -163,16 +163,6 @@
             const questionElement = document.querySelector(`[data-question-id="${questionId}"]`);
             questionElement.remove();
         }
-
-        document.getElementById('surveyForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const surveyData = Object.fromEntries(formData.entries());
-            console.log('Encuesta creada:', surveyData);
-            alert('¡Encuesta creada con éxito!');
-            event.target.reset();
-            document.getElementById('questionsContainer').innerHTML = '';
-        });
     </script>
 </body>
 </html>

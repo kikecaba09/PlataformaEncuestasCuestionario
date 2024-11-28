@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     encuestasRecientes.innerHTML = '<div class="text-center"><i class="fas fa-spinner fa-spin"></i> Cargando encuestas...</div>';
 
     // Cargar nombre del usuario
-    fetch('../php/login/usuario.php')
+    fetch('../php/login/login.php')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al obtener el usuario');
