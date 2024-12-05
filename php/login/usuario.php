@@ -12,7 +12,7 @@ if (!isset($_SESSION['usuario_id'])) {
 $usuario_id = $_SESSION['usuario_id'];
 
 // Consultar el nombre del usuario
-$sql = "SELECT nombreUsuario FROM 8suario WHERE usuario_id = ?";
+$sql = "SELECT nombreUsuario FROM usuario WHERE usuario_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $usuario_id);
 $stmt->execute();

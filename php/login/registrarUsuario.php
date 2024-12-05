@@ -1,5 +1,5 @@
 <?php
-require_once '../conexion.php'; 
+require_once '../conexion.php';
 
 // Verificar si se envió el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

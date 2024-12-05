@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     encuestasRecientes.innerHTML = '<div class="text-center"><i class="fas fa-spinner fa-spin"></i> Cargando encuestas...</div>';
 
     // Cargar nombre del usuario
-    fetch('../php/login/usuario.php')
+    fetch('/php/login/usuario.php')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al obtener el usuario');
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
     // Cargar encuestas recientes
-    fetch('../php/encuesta/dashoboard.php')
+    fetch('/php/encuesta/dashoboard.php')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al cargar encuestas');

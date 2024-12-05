@@ -3,7 +3,7 @@
 include '../conexion.php'; // Incluye el archivo donde está la conexión a la base de datos
 
 // Iniciar la sesión para acceder a las variables de sesión
-session_start(); 
+session_start();
 
 // Verificar si el usuario está logueado
 if (!isset($_SESSION['usuario_id'])) {
